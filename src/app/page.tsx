@@ -61,12 +61,7 @@ function TopNav() {
   return (
     <header className="sticky top-0 z-40 bg-[#0A1628]/80 backdrop-blur-xl border-b border-white/10">
       <div className="container-x flex items-center justify-between h-14 md:h-16">
-        <a href="/" className="inline-flex items-center gap-2.5">
-          <span className="inline-block w-8 h-8 md:w-9 md:h-9 rounded-xl bg-gradient-to-br from-[#FCD34D] via-[#F59E0B] to-[#B45309] shadow-[0_4px_12px_rgba(245,158,11,0.3)] relative overflow-hidden">
-            <svg viewBox="0 0 40 40" className="w-full h-full">
-              <path d="M10 30 L30 10 M14 10 L10 10 L10 14 M26 30 L30 30 L30 26" stroke="#7C2D12" strokeWidth="3" strokeLinecap="round" fill="none" />
-            </svg>
-          </span>
+        <a href="/" className="inline-flex items-center">
           <span className="text-[18px] md:text-[22px] font-black text-gold-gradient tracking-tight">폭시티켓</span>
         </a>
         <nav className="hidden md:flex items-center gap-7 text-[14px] font-semibold text-[#94A3B8]">
