@@ -177,7 +177,7 @@ function ParticleField() {
         if (p.y < 0 || p.y > h) p.vy *= -1
         ctx.beginPath()
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2)
-        ctx.fillStyle = 'rgba(147, 197, 253, 0.85)'
+        ctx.fillStyle = 'rgba(37, 99, 235, 0.55)'
         ctx.fill()
       }
       for (let i = 0; i < particles.length; i++) {
@@ -191,7 +191,7 @@ function ParticleField() {
             ctx.beginPath()
             ctx.moveTo(a.x, a.y)
             ctx.lineTo(b.x, b.y)
-            ctx.strokeStyle = `rgba(96, 165, 250, ${0.25 * (1 - dist / 140)})`
+            ctx.strokeStyle = `rgba(30, 58, 138, ${0.18 * (1 - dist / 140)})`
             ctx.lineWidth = 0.8
             ctx.stroke()
           }
@@ -256,29 +256,28 @@ export default function Hero() {
   }, [])
 
   return (
-    <section className="relative overflow-hidden bg-[#0A1628] text-white">
-      <div className="absolute inset-0 bg-mesh-navy opacity-90 pointer-events-none" />
-      <div className="absolute inset-0 grid-bg-dark opacity-60 pointer-events-none" />
+    <section className="relative overflow-hidden bg-gradient-to-br from-white via-[#F0F9FF] to-[#DBEAFE] text-slate-900">
+      <div className="absolute inset-0 grid-bg opacity-50 pointer-events-none" />
       <ParticleField />
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0A1628]/30 to-[#0A1628] pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#F8FAFC] pointer-events-none" />
 
-      <div className="absolute -top-24 -left-24 w-[480px] h-[480px] rounded-full bg-[#1E3A8A] opacity-45 blur-[100px] animate-blob pointer-events-none" />
-      <div className="absolute -bottom-40 -right-24 w-[520px] h-[520px] rounded-full bg-[#0EA5E9] opacity-30 blur-[120px] animate-blob-2 pointer-events-none" />
-      <div className="absolute top-1/3 right-1/4 w-72 h-72 rounded-full bg-[#2563EB] opacity-25 blur-[90px] animate-blob pointer-events-none" />
+      <div className="absolute -top-24 -left-24 w-[480px] h-[480px] rounded-full bg-[#60A5FA] opacity-25 blur-[100px] animate-blob pointer-events-none" />
+      <div className="absolute -bottom-40 -right-24 w-[520px] h-[520px] rounded-full bg-[#38BDF8] opacity-20 blur-[120px] animate-blob-2 pointer-events-none" />
+      <div className="absolute top-1/3 right-1/4 w-72 h-72 rounded-full bg-[#A5B4FC] opacity-20 blur-[90px] animate-blob pointer-events-none" />
 
       {/* Floating decorative orbs */}
-      <div className="hidden md:block absolute top-28 left-[8%] w-2 h-2 rounded-full bg-[#60A5FA] animate-pulse-dot" />
-      <div className="hidden md:block absolute top-72 right-[12%] w-1.5 h-1.5 rounded-full bg-[#38BDF8] animate-pulse-dot" style={{ animationDelay: '0.6s' }} />
-      <div className="hidden md:block absolute bottom-40 left-[15%] w-2 h-2 rounded-full bg-[#FCD34D] animate-pulse-dot" style={{ animationDelay: '1.2s' }} />
+      <div className="hidden md:block absolute top-28 left-[8%] w-2 h-2 rounded-full bg-[#2563EB] animate-pulse-dot" />
+      <div className="hidden md:block absolute top-72 right-[12%] w-1.5 h-1.5 rounded-full bg-[#0EA5E9] animate-pulse-dot" style={{ animationDelay: '0.6s' }} />
+      <div className="hidden md:block absolute bottom-40 left-[15%] w-2 h-2 rounded-full bg-[#F59E0B] animate-pulse-dot" style={{ animationDelay: '1.2s' }} />
 
       <div className="container-x relative pt-16 pb-16 md:pt-24 md:pb-24 lg:pt-28 lg:pb-32">
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           <div className="text-center lg:text-left">
-            <div className="inline-flex items-center gap-2 glass-card-dark text-[12px] md:text-[13px] font-semibold px-4 py-2 rounded-full mb-6 md:mb-8 animate-fade-up">
+            <div className="inline-flex items-center gap-2 bg-white text-[12px] md:text-[13px] font-semibold px-4 py-2 rounded-full mb-6 md:mb-8 animate-fade-up border border-[--border-strong] shadow-sm">
               <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse-dot" />
-              <span className="text-[#93C5FD]">신용카드 · 소액결제 현금화 전문</span>
-              <span className="mx-1 w-px h-3 bg-white/20" />
-              <span className="text-gold-gradient font-bold">업계 1위</span>
+              <span className="text-[#1E3A8A]">신용카드 · 소액결제 현금화 전문</span>
+              <span className="mx-1 w-px h-3 bg-slate-200" />
+              <span className="text-[#B45309] font-bold">업계 1위</span>
             </div>
 
             <h1 className="text-[24px] sm:text-[32px] md:text-[44px] lg:text-[36px] xl:text-[44px] 2xl:text-[52px] font-black leading-[1.25] tracking-[-0.03em] mb-5 md:mb-6 animate-fade-up-delay-1 whitespace-nowrap break-keep">
@@ -287,9 +286,9 @@ export default function Hero() {
               <span className="text-gold-gradient">현금</span>으로
             </h1>
 
-            <p className="text-[15px] md:text-[19px] text-[#CBD5E1] leading-[1.8] mb-6 md:mb-8 animate-fade-up-delay-2 break-keep max-w-[580px] mx-auto lg:mx-0">
-              <b className="text-white">신용카드 · 소액결제 · 정보이용료</b> 모두 가능<br />
-              업계 최고 <b className="text-white">94% 지급률</b> · 365일 24시간 상담.
+            <p className="text-[15px] md:text-[19px] text-slate-700 leading-[1.8] mb-6 md:mb-8 animate-fade-up-delay-2 break-keep max-w-[580px] mx-auto lg:mx-0">
+              <b className="text-slate-900">신용카드 · 소액결제 · 정보이용료</b> 모두 가능<br />
+              업계 최고 <b className="text-slate-900">94% 지급률</b> · 365일 24시간 상담.
             </p>
 
             {/* Service type chips */}
@@ -307,11 +306,11 @@ export default function Hero() {
               ].map((s) => (
                 <span
                   key={s.label}
-                  className="inline-flex items-center gap-1.5 glass-card-dark text-[12px] md:text-[13px] font-semibold px-3 py-1.5 rounded-full text-white"
+                  className="inline-flex items-center gap-1.5 bg-white border border-[--border-strong] text-[12px] md:text-[13px] font-semibold px-3 py-1.5 rounded-full text-slate-800 shadow-sm"
                 >
                   {s.icon}
                   {s.label}
-                  <span className="text-gold-gradient font-black">{s.amount}</span>
+                  <span className="text-brand-gradient font-black">{s.amount}</span>
                 </span>
               ))}
             </div>
@@ -324,11 +323,11 @@ export default function Hero() {
                 { v: five, label: '무사고', accent: 'text-brand-gradient' },
                 { v: cust, label: '누적 고객', accent: 'text-gold-gradient' },
               ].map((s, i) => (
-                <div key={i} className="glass-card-dark rounded-xl px-2 py-2.5 md:py-3 text-center">
+                <div key={i} className="bg-white border border-[--border-strong] rounded-xl px-2 py-2.5 md:py-3 text-center shadow-sm">
                   <div className={`text-[15px] md:text-[20px] font-black leading-none ${s.accent}`}>
                     <span ref={s.v.ref}>{s.v.display}</span>
                   </div>
-                  <div className="text-[10px] md:text-[11px] text-[#94A3B8] font-medium mt-1">{s.label}</div>
+                  <div className="text-[10px] md:text-[11px] text-slate-600 font-medium mt-1">{s.label}</div>
                 </div>
               ))}
             </div>
