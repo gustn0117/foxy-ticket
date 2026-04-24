@@ -27,55 +27,88 @@ const mini = [
   '3번째 이용, 매번 한결같이 빠릅니다',
   '할부 무이자로 부담 적었어요',
   '경조사비 급하게 해결됐어요',
+  '업계 최고 지급률 맞네요',
+  '친구한테도 추천했어요',
 ]
+
+function StarRow() {
+  return (
+    <div className="flex gap-0.5">
+      {[...Array(5)].map((_, j) => (
+        <svg key={j} width="15" height="15" viewBox="0 0 24 24" fill="none">
+          <defs>
+            <linearGradient id={`srg${j}`} x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stopColor="#FDE68A" />
+              <stop offset="100%" stopColor="#F59E0B" />
+            </linearGradient>
+          </defs>
+          <path
+            d="M12 2l2.4 6.6L21 9.6l-5 4.6 1.4 6.6L12 17.6 6.6 20.8 8 14.2l-5-4.6 6.6-1 2.4-6.6z"
+            fill={`url(#srg${j})`}
+            stroke="#F59E0B"
+            strokeOpacity="0.5"
+            strokeWidth="0.5"
+          />
+        </svg>
+      ))}
+    </div>
+  )
+}
 
 export default function Reviews() {
   return (
-    <section id="reviews" className="py-14 md:py-20 lg:py-24 bg-white reveal">
-      <div className="container-x">
-        <div className="text-center mb-10 md:mb-14">
-          <div className="inline-block text-[12px] md:text-[13px] font-bold text-[#DB2777] bg-[--brand-pink-soft] px-3 py-1 rounded-full mb-3">
+    <section id="reviews" className="relative py-16 md:py-24 lg:py-28 overflow-hidden bg-gradient-to-b from-white to-[#F1F5F9] reveal">
+      <div className="absolute -top-20 right-1/4 w-96 h-96 rounded-full bg-[#3B82F6] opacity-10 blur-[80px] pointer-events-none" />
+      <div className="absolute bottom-0 left-1/4 w-80 h-80 rounded-full bg-[#FCD34D] opacity-10 blur-[80px] pointer-events-none" />
+
+      <div className="container-x relative">
+        <div className="text-center mb-12 md:mb-16">
+          <div className="inline-block text-[12px] md:text-[13px] font-bold text-[#1E3A8A] bg-white border border-[--border-strong] px-3.5 py-1.5 rounded-full mb-4 shadow-sm">
             폭시티켓 100% 찐 이용자 후기
           </div>
-          <h2 className="text-[24px] md:text-[34px] lg:text-[40px] font-black leading-tight break-keep">
+          <h2 className="text-[26px] md:text-[40px] lg:text-[48px] font-black leading-tight break-keep">
             실제 고객님들의 <span className="text-brand-gradient">생생한 후기</span>
           </h2>
-          <div className="inline-flex items-center gap-2 mt-4">
-            <div className="flex gap-0.5">
-              {[...Array(5)].map((_, j) => (
-                <span key={j} className="text-[#F59E0B] text-[18px] md:text-[22px]">&#9733;</span>
-              ))}
-            </div>
-            <span className="text-[15px] md:text-[17px] font-bold text-[--text]">5.0</span>
+          <div className="inline-flex items-center gap-2 mt-5">
+            <StarRow />
+            <span className="text-[18px] md:text-[22px] font-black text-gold-gradient">5.0</span>
             <span className="text-[12px] md:text-[14px] text-[--text-light]">· 실시간 평점</span>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-8 md:mb-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-7 mb-10 md:mb-12">
           {featured.map((r, i) => (
             <div
               key={i}
-              className="bg-gradient-to-br from-white to-[#FDF2F8] rounded-2xl p-6 md:p-7 border border-[--border-strong] hover:shadow-[0_12px_32px_rgba(236,72,153,0.12)] transition-all"
+              className="card-3d relative bg-white rounded-2xl md:rounded-3xl p-6 md:p-8 border border-[--border] shadow-[0_8px_28px_rgba(15,30,61,0.05)] overflow-hidden"
             >
-              <div className="flex gap-0.5 mb-3">
-                {[...Array(5)].map((_, j) => (
-                  <span key={j} className="text-[#F59E0B] text-[14px] md:text-[16px]">&#9733;</span>
-                ))}
+              <div className="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-[#FCD34D] opacity-15 blur-2xl pointer-events-none" />
+
+              <svg width="30" height="24" viewBox="0 0 30 24" className="mb-4 text-[#CBD5E1]" fill="currentColor">
+                <path d="M0 24V12C0 5.4 4.4 0.6 10.8 0v4C6.6 4.8 4 7.6 4 12h6v12H0zm16 0V12c0-6.6 4.4-11.4 10.8-12v4c-4.2 0.8-6.8 3.6-6.8 8h6v12H16z"/>
+              </svg>
+
+              <div className="flex items-center gap-2 mb-3">
+                <StarRow />
               </div>
-              <div className="text-[14px] md:text-[15px] font-extrabold text-[#DB2777] mb-1">{r.name}님</div>
-              <h3 className="text-[16px] md:text-[18px] font-black text-[--text] mb-3 break-keep leading-snug">{r.title}</h3>
-              <p className="text-[13px] md:text-[14px] text-[--text-sub] leading-[1.75] break-keep">{r.body}</p>
+              <div className="text-[13px] md:text-[15px] font-black text-[#1E3A8A] mb-1">{r.name}님</div>
+              <h3 className="text-[16px] md:text-[19px] font-black text-[--text] mb-3 break-keep leading-snug">{r.title}</h3>
+              <p className="text-[13px] md:text-[14px] text-[--text-sub] leading-[1.8] break-keep">{r.body}</p>
+              <span className="shine-overlay" />
             </div>
           ))}
         </div>
 
-        <div className="flex flex-wrap justify-center gap-2 md:gap-2.5 max-w-[960px] mx-auto">
+        <div className="flex flex-wrap justify-center gap-2 md:gap-2.5 max-w-[1040px] mx-auto">
           {mini.map((t, i) => (
             <span
               key={i}
-              className="inline-flex items-center gap-1 bg-[#FDF2F8] border border-[--border-strong] text-[12px] md:text-[13px] text-[#7C3AED] font-semibold px-3 py-1.5 rounded-full"
+              className="inline-flex items-center gap-1.5 bg-white border border-[--border-strong] text-[12px] md:text-[13px] text-[#1E3A8A] font-semibold px-3 py-1.5 rounded-full shadow-sm"
             >
-              <span className="text-[#F59E0B]">&#9733;</span> {t}
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="#F59E0B">
+                <path d="M12 2l2.4 6.6L21 9.6l-5 4.6 1.4 6.6L12 17.6 6.6 20.8 8 14.2l-5-4.6 6.6-1 2.4-6.6z"/>
+              </svg>
+              {t}
             </span>
           ))}
         </div>

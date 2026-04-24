@@ -13,6 +13,102 @@ const tickerData = [
   { name: '한*우님', amount: '900,000원' },
 ]
 
+function PremiumCard3D() {
+  return (
+    <svg viewBox="0 0 320 200" className="w-full max-w-[360px] md:max-w-[420px] mx-auto drop-shadow-[0_30px_60px_rgba(30,58,138,0.45)] animate-float">
+      <defs>
+        <linearGradient id="cardBodyG" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#1E3A8A" />
+          <stop offset="55%" stopColor="#2563EB" />
+          <stop offset="100%" stopColor="#0A1628" />
+        </linearGradient>
+        <linearGradient id="cardShineG" x1="0" y1="0" x2="1" y2="0.6">
+          <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.28" />
+          <stop offset="45%" stopColor="#FFFFFF" stopOpacity="0" />
+          <stop offset="55%" stopColor="#FFFFFF" stopOpacity="0" />
+          <stop offset="100%" stopColor="#FFFFFF" stopOpacity="0.14" />
+        </linearGradient>
+        <linearGradient id="chipG" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#FDE68A" />
+          <stop offset="50%" stopColor="#F59E0B" />
+          <stop offset="100%" stopColor="#B45309" />
+        </linearGradient>
+        <radialGradient id="chipHl" cx="0.3" cy="0.25" r="0.6">
+          <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.7" />
+          <stop offset="100%" stopColor="#FFFFFF" stopOpacity="0" />
+        </radialGradient>
+        <linearGradient id="cardEdgeG" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#60A5FA" stopOpacity="0.8" />
+          <stop offset="100%" stopColor="#1E3A8A" stopOpacity="0.1" />
+        </linearGradient>
+        <filter id="cardShadow" x="-20%" y="-20%" width="140%" height="140%">
+          <feGaussianBlur stdDeviation="6" />
+        </filter>
+      </defs>
+
+      {/* Back tilted card (depth) */}
+      <g transform="translate(34 28) rotate(-6 150 100)">
+        <rect x="0" y="0" width="280" height="170" rx="18" fill="#1E3A8A" opacity="0.55" />
+      </g>
+
+      {/* Main card */}
+      <g transform="translate(20 14)">
+        <rect x="0" y="0" width="280" height="176" rx="20" fill="url(#cardBodyG)" />
+        <rect x="0" y="0" width="280" height="176" rx="20" fill="url(#cardShineG)" />
+        {/* Top edge highlight */}
+        <rect x="0" y="0" width="280" height="2" rx="1" fill="url(#cardEdgeG)" />
+
+        {/* Brand label */}
+        <text x="22" y="34" fill="#FFFFFF" fontSize="13" fontWeight="700" letterSpacing="2">FOXY TICKET</text>
+
+        {/* Chip */}
+        <g>
+          <rect x="24" y="62" width="46" height="34" rx="6" fill="url(#chipG)" />
+          <rect x="24" y="62" width="46" height="34" rx="6" fill="url(#chipHl)" />
+          <path d="M31 79h32 M47 67v24" stroke="#92400E" strokeOpacity="0.55" strokeWidth="1" />
+          <path d="M31 72h12 M51 72h12 M31 86h12 M51 86h12" stroke="#78350F" strokeOpacity="0.4" strokeWidth="1" />
+        </g>
+
+        {/* Contactless */}
+        <g transform="translate(92 68)">
+          <path d="M0 14c3-5 3-9 0-14" stroke="#FDE68A" strokeWidth="2" strokeLinecap="round" fill="none" />
+          <path d="M6 17c5-7 5-13 0-20" stroke="#FDE68A" strokeWidth="2" strokeLinecap="round" fill="none" opacity="0.75" />
+          <path d="M12 20c7-9 7-17 0-26" stroke="#FDE68A" strokeWidth="2" strokeLinecap="round" fill="none" opacity="0.5" />
+        </g>
+
+        {/* Number */}
+        <text x="22" y="132" fill="#E0EAFA" fontFamily="monospace" fontSize="15" letterSpacing="3">
+          1234 5678 9012
+        </text>
+        <text x="198" y="132" fill="#FFFFFF" fontFamily="monospace" fontSize="15" letterSpacing="3" fontWeight="700">3425</text>
+
+        {/* Holder / expiry */}
+        <text x="22" y="156" fill="#93C5FD" fontSize="9" letterSpacing="1.5">CARD HOLDER</text>
+        <text x="22" y="167" fill="#FFFFFF" fontSize="11" letterSpacing="2" fontWeight="600">FOXY MEMBER</text>
+        <text x="200" y="156" fill="#93C5FD" fontSize="9" letterSpacing="1.5">VALID THRU</text>
+        <text x="200" y="167" fill="#FFFFFF" fontSize="11" letterSpacing="2" fontWeight="600">12 / 28</text>
+
+        {/* Brand marks */}
+        <g transform="translate(232 30)">
+          <circle cx="12" cy="14" r="12" fill="#EF4444" opacity="0.92" />
+          <circle cx="26" cy="14" r="12" fill="#F59E0B" opacity="0.92" />
+          <circle cx="19" cy="14" r="9" fill="#FCD34D" opacity="0.6" />
+        </g>
+
+        {/* Shine highlight curve */}
+        <path d="M0 0 Q140 80 280 0 V50 Q140 130 0 50 Z" fill="#FFFFFF" opacity="0.06" />
+      </g>
+
+      {/* Floating coin */}
+      <g transform="translate(260 16)" className="animate-float-slow" style={{ transformOrigin: '280px 40px' }}>
+        <circle cx="20" cy="20" r="18" fill="url(#chipG)" />
+        <circle cx="20" cy="20" r="18" fill="url(#chipHl)" />
+        <text x="20" y="25" textAnchor="middle" fill="#7C2D12" fontSize="15" fontWeight="900">₩</text>
+      </g>
+    </svg>
+  )
+}
+
 export default function Hero() {
   const [tickerIdx, setTickerIdx] = useState(0)
   const [fade, setFade] = useState(true)
@@ -29,89 +125,170 @@ export default function Hero() {
   }, [])
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-[#FDF2F8] via-white to-[#F3E8FF]">
-      {/* Decorative blobs */}
-      <div className="absolute -top-24 -left-24 w-80 h-80 bg-[#F9A8D4] opacity-30 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute -bottom-32 -right-24 w-96 h-96 bg-[#C084FC] opacity-25 rounded-full blur-3xl pointer-events-none" />
+    <section className="relative overflow-hidden bg-[#0A1628] text-white">
+      {/* Mesh gradient + noise */}
+      <div className="absolute inset-0 bg-mesh-navy opacity-90 pointer-events-none" />
+      <div className="absolute inset-0 grid-bg-dark opacity-60 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0A1628]/30 to-[#0A1628] pointer-events-none" />
 
-      <div className="container-x relative pt-16 pb-14 md:pt-24 md:pb-20 lg:pt-28 lg:pb-28 text-center">
-        {/* Badge */}
-        <div className="inline-flex items-center gap-2 bg-white text-[#DB2777] text-[12px] md:text-[13px] font-semibold px-4 py-2 rounded-full border border-[--border-strong] shadow-sm mb-7 md:mb-9 animate-fade-up">
-          <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse-dot" />
-          365일 24시간 상담 운영 중
-        </div>
+      {/* Animated blobs */}
+      <div className="absolute -top-24 -left-24 w-[480px] h-[480px] rounded-full bg-[#1E3A8A] opacity-45 blur-[100px] animate-blob pointer-events-none" />
+      <div className="absolute -bottom-40 -right-24 w-[520px] h-[520px] rounded-full bg-[#0EA5E9] opacity-30 blur-[120px] animate-blob-2 pointer-events-none" />
+      <div className="absolute top-1/3 right-1/4 w-72 h-72 rounded-full bg-[#2563EB] opacity-25 blur-[90px] animate-blob pointer-events-none" />
 
-        {/* Heading */}
-        <h1 className="text-[32px] md:text-[48px] lg:text-[60px] font-black leading-[1.25] md:leading-[1.2] tracking-[-0.02em] mb-5 md:mb-7 animate-fade-up-delay-1">
-          소액결제 현금화<br className="md:hidden" />
-          <span className="md:ml-3"> </span>
-          <span className="text-shimmer">폭시티켓</span>
-        </h1>
+      {/* Floating orbs (tiny decorative) */}
+      <div className="hidden md:block absolute top-28 left-[8%] w-2 h-2 rounded-full bg-[#60A5FA] animate-pulse-dot" />
+      <div className="hidden md:block absolute top-72 right-[12%] w-1.5 h-1.5 rounded-full bg-[#38BDF8] animate-pulse-dot" style={{ animationDelay: '0.6s' }} />
+      <div className="hidden md:block absolute bottom-40 left-[15%] w-2 h-2 rounded-full bg-[#FCD34D] animate-pulse-dot" style={{ animationDelay: '1.2s' }} />
 
-        <p className="text-[15px] md:text-[19px] lg:text-[21px] text-[--text-sub] leading-[1.7] mb-9 md:mb-11 animate-fade-up-delay-2 break-keep max-w-[760px] mx-auto">
-          긴급한 자금이 필요할 때, 폭시티켓이 함께합니다.<br />
-          <b className="text-[--text]">업계 최고 94% 지급률</b> · <b className="text-[--text]">365일 24시간 상담</b> · <b className="text-[--text]">5년간 무사고 운영</b>
-        </p>
-
-        {/* Sub-badges */}
-        <div className="flex flex-wrap items-center justify-center gap-2 mb-10 md:mb-12 animate-fade-up-delay-2">
-          {['앱카드 결제 OK', '무이자 할부 가능', '신용한도 영향 X'].map((t) => (
-            <span
-              key={t}
-              className="inline-flex items-center gap-1 bg-white/80 border border-[--border-strong] text-[12px] md:text-[13px] text-[#7C3AED] font-semibold px-3.5 py-1.5 rounded-full"
-            >
-              <span className="text-[#10B981]">&#10003;</span> {t}
-            </span>
-          ))}
-        </div>
-
-        {/* CTA row */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-10 md:mb-12 animate-fade-up-delay-3">
-          <a
-            href="https://open.kakao.com/o/skv91Efi"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#FEE500] text-[#1A1A1A] rounded-full text-[15px] md:text-[16px] font-bold shadow-[0_8px_24px_rgba(254,229,0,0.4)] hover:-translate-y-0.5 active:translate-y-0 transition-all"
-          >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="#1A1A1A">
-              <path d="M12 3C6.48 3 2 6.58 2 10.94c0 2.8 1.86 5.27 4.66 6.66-.15.54-.96 3.47-1 3.63 0 .05.02.1.06.13a.14.14 0 00.1.02c.14-.02 3.25-2.14 3.73-2.46.77.11 1.58.17 2.4.17 5.52 0 10-3.58 10-7.94S17.52 3 12 3z"/>
-            </svg>
-            채널톡 1분 상담
-          </a>
-          <a
-            href="tel:01034250104"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-[#EC4899] to-[#A855F7] text-white rounded-full text-[15px] md:text-[16px] font-bold shadow-[0_8px_24px_rgba(236,72,153,0.35)] hover:-translate-y-0.5 active:translate-y-0 transition-all"
-          >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-              <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.81.36 1.6.68 2.34a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.74.32 1.53.55 2.34.68A2 2 0 0122 16.92z" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-            010-3425-0104
-          </a>
-        </div>
-
-        {/* Ticker card */}
-        <div className="relative mx-auto max-w-[520px] bg-white rounded-2xl border border-[--border-strong] shadow-[0_10px_30px_rgba(168,85,247,0.08)] overflow-hidden animate-fade-up-delay-3">
-          <div className="flex items-center justify-between px-4 py-2.5 border-b border-[--border]">
-            <div className="flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 bg-[#10B981] rounded-full animate-pulse-dot" />
-              <span className="text-[11px] md:text-[12px] font-semibold text-[#059669]">실시간 입금 현황</span>
+      <div className="container-x relative pt-16 pb-16 md:pt-24 md:pb-24 lg:pt-28 lg:pb-32">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+          <div className="text-center lg:text-left">
+            {/* Badge */}
+            <div className="inline-flex items-center gap-2 glass-card-dark text-[12px] md:text-[13px] font-semibold px-4 py-2 rounded-full mb-6 md:mb-8 animate-fade-up">
+              <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse-dot" />
+              <span className="text-[#93C5FD]">365일 24시간 상담 운영 중</span>
+              <span className="mx-1 w-px h-3 bg-white/20" />
+              <span className="text-gold-gradient font-bold">업계 1위</span>
             </div>
-            <span className="text-[11px] text-[--text-light]">방금 전</span>
+
+            {/* Heading */}
+            <h1 className="text-[34px] md:text-[52px] lg:text-[64px] font-black leading-[1.15] tracking-[-0.02em] mb-5 md:mb-6 animate-fade-up-delay-1">
+              긴급할 때<br />
+              <span className="inline-block text-navy-shine">신용카드 한도</span>를<br />
+              <span className="text-gold-gradient">현금</span>으로
+            </h1>
+
+            <p className="text-[15px] md:text-[19px] text-[#CBD5E1] leading-[1.8] mb-8 md:mb-10 animate-fade-up-delay-2 break-keep max-w-[560px] mx-auto lg:mx-0">
+              <b className="text-white">업계 최고 94% 지급률</b>을 보장하는 폭시티켓.<br />
+              5년간 무사고 · 365일 24시간 · 앱카드/무이자 할부 가능.
+            </p>
+
+            {/* Sub-badges */}
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2 mb-8 md:mb-10 animate-fade-up-delay-2">
+              {[
+                { t: '앱카드 결제 OK', c: '#60A5FA' },
+                { t: '무이자 할부', c: '#38BDF8' },
+                { t: '신용한도 영향 X', c: '#FCD34D' },
+              ].map((b) => (
+                <span
+                  key={b.t}
+                  className="inline-flex items-center gap-1.5 glass-card-dark text-[12px] md:text-[13px] font-semibold px-3.5 py-1.5 rounded-full"
+                  style={{ color: b.c }}
+                >
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="12" r="10" fill={b.c} opacity="0.18" />
+                    <path d="M8 12l3 3 5-6" stroke={b.c} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                  {b.t}
+                </span>
+              ))}
+            </div>
+
+            {/* CTA row */}
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-3 mb-8 md:mb-10 animate-fade-up-delay-3">
+              <a
+                href="https://open.kakao.com/o/skv91Efi"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative overflow-hidden inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#FEE500] text-[#1A1A1A] rounded-full text-[15px] md:text-[16px] font-bold shadow-[0_12px_32px_rgba(254,229,0,0.35)] hover:-translate-y-0.5 active:translate-y-0 transition-all"
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="#1A1A1A">
+                  <path d="M12 3C6.48 3 2 6.58 2 10.94c0 2.8 1.86 5.27 4.66 6.66-.15.54-.96 3.47-1 3.63 0 .05.02.1.06.13a.14.14 0 00.1.02c.14-.02 3.25-2.14 3.73-2.46.77.11 1.58.17 2.4.17 5.52 0 10-3.58 10-7.94S17.52 3 12 3z"/>
+                </svg>
+                채널톡 1분 상담
+              </a>
+              <a
+                href="tel:01034250104"
+                className="relative overflow-hidden inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-[15px] md:text-[16px] font-bold text-white animate-glow-pulse bg-gradient-to-r from-[#1E3A8A] via-[#2563EB] to-[#0EA5E9] hover:-translate-y-0.5 active:translate-y-0 transition-all"
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.81.36 1.6.68 2.34a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.74.32 1.53.55 2.34.68A2 2 0 0122 16.92z" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+                010-3425-0104
+              </a>
+            </div>
+
+            {/* Trust indicators */}
+            <div className="flex items-center justify-center lg:justify-start gap-6 text-[12px] md:text-[13px] text-[#94A3B8] animate-fade-up-delay-3">
+              <div className="flex items-center gap-1.5">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 2l9 4v6c0 5-4 9-9 10-5-1-9-5-9-10V6l9-4z" stroke="#60A5FA" strokeWidth="2" strokeLinejoin="round"/>
+                  <path d="M8 12l3 3 5-6" stroke="#FCD34D" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+                5년간 무사고
+              </div>
+              <div className="flex items-center gap-1.5">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <circle cx="12" cy="12" r="10" stroke="#60A5FA" strokeWidth="2"/>
+                  <path d="M12 6v6l4 2" stroke="#FCD34D" strokeWidth="2" strokeLinecap="round"/>
+                </svg>
+                평균 3분 입금
+              </div>
+              <div className="flex items-center gap-1.5">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <path d="M4 7l8-4 8 4-8 4-8-4zM4 12l8 4 8-4M4 17l8 4 8-4" stroke="#60A5FA" strokeWidth="2" strokeLinejoin="round"/>
+                </svg>
+                누적 25,000+
+              </div>
+            </div>
           </div>
-          <div
-            className="px-4 py-3.5 flex items-center justify-between transition-opacity duration-300"
-            style={{ opacity: fade ? 1 : 0 }}
-          >
-            <span className="text-[14px] md:text-[15px] text-[--text-sub]">{tickerData[tickerIdx].name}</span>
-            <div className="flex items-center gap-2.5">
-              <span className="font-extrabold text-[17px] md:text-[19px] text-brand-gradient">
-                {tickerData[tickerIdx].amount}
-              </span>
-              <span className="text-[10px] md:text-[11px] font-bold text-white bg-[#10B981] px-2 py-0.5 rounded">완료</span>
+
+          {/* Right: 3D card visual */}
+          <div className="relative animate-fade-up-delay-2">
+            <div className="relative">
+              <PremiumCard3D />
+
+              {/* Floating info badge */}
+              <div className="absolute -top-2 md:-top-4 left-2 md:-left-6 glass-card rounded-2xl px-4 py-3 animate-float-slow" style={{ animationDelay: '0.4s' }}>
+                <div className="flex items-center gap-2">
+                  <div className="w-9 h-9 rounded-full bg-gradient-to-br from-[#2563EB] to-[#1E3A8A] flex items-center justify-center shadow-lg">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                      <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 16.8 5.8 21.3l2.4-7.4L2 9.4h7.6L12 2z" fill="#FCD34D"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <div className="text-[10px] text-[--text-light] font-semibold">업계 최고</div>
+                    <div className="text-[15px] font-black text-brand-gradient leading-none">94% 지급률</div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Floating amount badge */}
+              <div className="absolute -bottom-4 md:-bottom-6 right-2 md:-right-4 glass-card rounded-2xl px-4 py-3 animate-float" style={{ animationDelay: '0.8s' }}>
+                <div className="text-[10px] text-[--text-light] font-semibold mb-0.5">실시간 입금</div>
+                <div
+                  className="flex items-center gap-2 transition-opacity duration-300"
+                  style={{ opacity: fade ? 1 : 0 }}
+                >
+                  <span className="text-[11px] text-[--text-sub]">{tickerData[tickerIdx].name}</span>
+                  <span className="text-[14px] font-black text-brand-gradient">{tickerData[tickerIdx].amount}</span>
+                </div>
+              </div>
             </div>
+          </div>
+        </div>
+
+        {/* Bottom accent band */}
+        <div className="mt-10 md:mt-14 glass-card-dark rounded-2xl p-4 md:p-5 flex flex-wrap items-center justify-center md:justify-between gap-4">
+          <div className="flex items-center gap-2.5">
+            <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse-dot" />
+            <span className="text-[12px] md:text-[14px] font-semibold text-white">지금 상담 가능 · 평균 3분 입금</span>
+          </div>
+          <div className="flex items-center gap-5 text-[11px] md:text-[13px] text-[#94A3B8]">
+            <div><b className="text-white">5</b>년 무사고</div>
+            <div className="w-px h-3 bg-white/20" />
+            <div><b className="text-white">94%</b> 지급률</div>
+            <div className="w-px h-3 bg-white/20" />
+            <div><b className="text-white">24/7</b> 상담</div>
           </div>
         </div>
       </div>
+
+      {/* Divider wave */}
+      <svg viewBox="0 0 1440 80" className="block w-full" preserveAspectRatio="none" aria-hidden>
+        <path d="M0 40 Q360 80 720 40 T1440 40 V80 H0 Z" fill="#F8FAFC" />
+      </svg>
     </section>
   )
 }

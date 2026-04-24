@@ -21,21 +21,22 @@ export default function PhishingWarning() {
   ]
 
   return (
-    <section className="py-10 md:py-16 bg-white reveal">
-      <div className="container-x max-w-[860px]">
+    <section className="relative py-14 md:py-20 bg-gradient-to-b from-[#F1F5F9] to-white overflow-hidden reveal">
+      <div className="container-x relative max-w-[900px]">
         <div className="animate-red-glow rounded-2xl md:rounded-3xl">
-          <div className="bg-[#DC2626] rounded-t-2xl md:rounded-t-3xl px-5 py-4 md:py-5 flex items-center justify-center gap-3">
-            <span className="animate-bell inline-block">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" className="md:w-[26px] md:h-[26px]">
-                <path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M13.73 21a2 2 0 01-3.46 0" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          <div className="bg-[#DC2626] rounded-t-2xl md:rounded-t-3xl px-5 py-4 md:py-5 flex items-center justify-center gap-3 relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-r from-[#DC2626] via-[#EF4444] to-[#DC2626] animate-pulse-dot opacity-40 pointer-events-none" />
+            <span className="animate-bell inline-block relative">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="md:w-[28px] md:h-[28px]">
+                <path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9" stroke="white" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M13.73 21a2 2 0 01-3.46 0" stroke="white" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </span>
-            <span className="text-white text-[16px] md:text-[20px] font-black">보이스피싱 긴급 주의안내</span>
-            <span className="animate-bell inline-block" style={{ animationDelay: '0.3s' }}>
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" className="md:w-[26px] md:h-[26px]">
-                <path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M13.73 21a2 2 0 01-3.46 0" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            <span className="relative text-white text-[16px] md:text-[22px] font-black tracking-tight">보이스피싱 긴급 주의안내</span>
+            <span className="animate-bell inline-block relative" style={{ animationDelay: '0.3s' }}>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="md:w-[28px] md:h-[28px]">
+                <path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9" stroke="white" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M13.73 21a2 2 0 01-3.46 0" stroke="white" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </span>
           </div>
@@ -46,9 +47,9 @@ export default function PhishingWarning() {
                 <div key={i} className={`px-4 md:px-6 py-4 md:py-5 ${i > 0 ? 'border-t border-[#E5E7EB]' : ''}`}>
                   <div className="flex items-center gap-2 mb-2">
                     <span className="text-[#EF4444] text-[14px]">&#9888;</span>
-                    <span className="text-[14px] md:text-[16px] font-extrabold text-[--text]">{c.title}</span>
+                    <span className="text-[14px] md:text-[17px] font-extrabold text-[--text]">{c.title}</span>
                   </div>
-                  <p className="text-[12px] md:text-[14px] text-[--text-sub] leading-[1.8] pl-[22px] break-keep">
+                  <p className="text-[12px] md:text-[14px] text-[--text-sub] leading-[1.85] pl-[22px] break-keep">
                     {c.desc} <span className="bg-[#FEE2E2] text-[#DC2626] font-bold px-1 rounded whitespace-nowrap">{c.bold}</span> {c.after}
                   </p>
                 </div>
@@ -58,36 +59,54 @@ export default function PhishingWarning() {
             <div className="mt-6 md:mt-8 text-center">
               <div className="flex justify-center mb-3">
                 <div className="animate-prohibition">
-                  <svg width="44" height="44" viewBox="0 0 48 48" fill="none" className="md:w-[56px] md:h-[56px]">
-                    <circle cx="24" cy="24" r="20" stroke="#DC2626" strokeWidth="3"/>
-                    <line x1="12" y1="12" x2="36" y2="36" stroke="#DC2626" strokeWidth="3" strokeLinecap="round"/>
+                  <svg width="56" height="56" viewBox="0 0 48 48" fill="none" className="md:w-[72px] md:h-[72px]">
+                    <defs>
+                      <linearGradient id="prohG" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0%" stopColor="#EF4444" />
+                        <stop offset="100%" stopColor="#991B1B" />
+                      </linearGradient>
+                    </defs>
+                    <circle cx="24" cy="24" r="20" stroke="url(#prohG)" strokeWidth="3.5"/>
+                    <line x1="12" y1="12" x2="36" y2="36" stroke="url(#prohG)" strokeWidth="3.5" strokeLinecap="round"/>
                   </svg>
                 </div>
               </div>
-              <p className="text-[13px] md:text-[15px] text-[--text-sub] mb-1.5">
+              <p className="text-[13px] md:text-[16px] text-[--text-sub] mb-1.5">
                 위 사례는 모두 <span className="text-[#DC2626] font-bold">보이스피싱</span>입니다.
               </p>
-              <p className="text-[#DC2626] text-[24px] md:text-[32px] font-black">당신도 공범입니다</p>
-              <div className="w-14 md:w-20 h-[3px] bg-[#DC2626] mx-auto mt-2 md:mt-3 rounded-full" />
+              <p className="text-[#DC2626] text-[26px] md:text-[38px] font-black tracking-[-0.01em]">당신도 공범입니다</p>
+              <div className="w-14 md:w-24 h-[3px] bg-[#DC2626] mx-auto mt-2 md:mt-3 rounded-full" />
             </div>
           </div>
         </div>
 
-        <div className="mt-8 md:mt-10 bg-gradient-to-br from-[#FEE500]/10 via-[#FCE7F3] to-[#F3E8FF] rounded-2xl md:rounded-3xl p-6 md:p-10 border border-[--border-strong]">
-          <div className="text-center">
-            <h3 className="text-[18px] md:text-[26px] font-black mb-2 break-keep">
-              신용카드 현금화 전문, <span className="text-brand-gradient">폭시티켓은 오직 채널톡에서!</span>
+        <div className="mt-8 md:mt-10 relative overflow-hidden rounded-2xl md:rounded-3xl">
+          <div className="absolute inset-0 bg-gradient-to-br from-[#0A1628] via-[#1E3A8A] to-[#2563EB]" />
+          <div className="absolute inset-0 grid-bg-dark opacity-40 pointer-events-none" />
+          <div className="absolute -top-16 -left-16 w-60 h-60 rounded-full bg-[#FCD34D] opacity-20 blur-3xl pointer-events-none" />
+          <div className="absolute -bottom-24 -right-16 w-72 h-72 rounded-full bg-[#0EA5E9] opacity-30 blur-3xl pointer-events-none" />
+
+          <div className="relative px-6 md:px-10 py-8 md:py-12 text-center">
+            <div className="inline-flex items-center gap-2 bg-[#FEE500] text-[#1A1A1A] text-[11px] md:text-[12px] font-black px-3 py-1 rounded-full mb-4">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="#1A1A1A">
+                <path d="M12 3C6.48 3 2 6.58 2 10.94c0 2.8 1.86 5.27 4.66 6.66-.15.54-.96 3.47-1 3.63 0 .05.02.1.06.13a.14.14 0 00.1.02c.14-.02 3.25-2.14 3.73-2.46.77.11 1.58.17 2.4.17 5.52 0 10-3.58 10-7.94S17.52 3 12 3z"/>
+              </svg>
+              KakaoTalk Channel
+            </div>
+            <h3 className="text-[19px] md:text-[30px] font-black mb-2 text-white break-keep">
+              신용카드 현금화 전문<br />
+              <span className="text-gold-gradient">폭시티켓은 오직 채널톡에서!</span>
             </h3>
-            <p className="text-[13px] md:text-[15px] text-[--text-sub] mb-5">
-              카카오톡 <b>플러스친구는 사칭이므로 주의</b>하세요!
+            <p className="text-[13px] md:text-[16px] text-[#CBD5E1] mb-6 md:mb-7">
+              카카오톡 <b className="text-white">플러스친구는 사칭이므로 주의</b>하세요!
             </p>
             <a
               href="https://open.kakao.com/o/skv91Efi"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 md:px-10 py-3.5 md:py-4 bg-[#FEE500] text-[#1A1A1A] rounded-full text-[14px] md:text-[16px] font-bold shadow-[0_8px_24px_rgba(254,229,0,0.4)] hover:-translate-y-0.5 transition-all"
+              className="inline-flex items-center gap-2 px-7 md:px-12 py-4 md:py-5 bg-[#FEE500] text-[#1A1A1A] rounded-full text-[14px] md:text-[16px] font-black shadow-[0_12px_32px_rgba(254,229,0,0.4)] hover:-translate-y-0.5 transition-all"
             >
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="#1A1A1A">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="#1A1A1A">
                 <path d="M12 3C6.48 3 2 6.58 2 10.94c0 2.8 1.86 5.27 4.66 6.66-.15.54-.96 3.47-1 3.63 0 .05.02.1.06.13a.14.14 0 00.1.02c.14-.02 3.25-2.14 3.73-2.46.77.11 1.58.17 2.4.17 5.52 0 10-3.58 10-7.94S17.52 3 12 3z"/>
               </svg>
               채널톡으로 바로 상담하기

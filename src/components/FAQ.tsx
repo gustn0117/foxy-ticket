@@ -45,55 +45,61 @@ export default function FAQ() {
   const [openIdx, setOpenIdx] = useState<number | null>(0)
 
   return (
-    <section id="faq" className="py-14 md:py-20 lg:py-24 bg-gradient-to-b from-[#FDF2F8] to-white reveal">
-      <div className="container-x max-w-[900px]">
-        <div className="text-center mb-8 md:mb-12">
-          <div className="inline-block text-[12px] md:text-[13px] font-bold text-[#DB2777] bg-white border border-[--border-strong] px-3 py-1 rounded-full mb-3">
+    <section id="faq" className="relative py-16 md:py-24 lg:py-28 overflow-hidden bg-gradient-to-b from-white to-[#EFF6FF] reveal">
+      <div className="absolute inset-0 grid-bg opacity-30 pointer-events-none" />
+      <div className="absolute -top-20 right-10 w-80 h-80 rounded-full bg-[#3B82F6] opacity-10 blur-[80px] pointer-events-none" />
+
+      <div className="container-x relative max-w-[920px]">
+        <div className="text-center mb-10 md:mb-14">
+          <div className="inline-block text-[12px] md:text-[13px] font-bold text-[#1E3A8A] bg-white border border-[--border-strong] px-3.5 py-1.5 rounded-full mb-4 shadow-sm">
             자주 묻는 질문
           </div>
-          <h2 className="text-[24px] md:text-[34px] lg:text-[40px] font-black leading-tight break-keep">
+          <h2 className="text-[26px] md:text-[40px] lg:text-[48px] font-black leading-tight break-keep">
             <span className="text-brand-gradient">폭시티켓</span> 이용 FAQ
           </h2>
         </div>
 
-        <div className="space-y-2.5">
+        <div className="space-y-3">
           {faqData.map((item, i) => {
             const isOpen = openIdx === i
             return (
               <div
                 key={i}
-                className={`rounded-2xl border transition-all duration-300 ${
+                className={`rounded-2xl border transition-all duration-500 overflow-hidden ${
                   isOpen
-                    ? 'border-[#F472B6] shadow-[0_8px_24px_rgba(236,72,153,0.12)] bg-white'
-                    : 'border-[--border-strong] bg-white'
+                    ? 'border-transparent shadow-[0_16px_40px_rgba(30,58,138,0.18)]'
+                    : 'border-[--border-strong] bg-white hover:border-[#60A5FA]'
                 }`}
               >
                 <button
                   onClick={() => setOpenIdx(isOpen ? null : i)}
-                  className={`flex items-center justify-between w-full px-5 md:px-6 py-4 md:py-5 text-[14px] md:text-[16px] text-left rounded-2xl transition-colors ${
+                  className={`relative flex items-center justify-between w-full px-5 md:px-7 py-4 md:py-5 text-[14px] md:text-[16px] text-left transition-colors ${
                     isOpen
-                      ? 'bg-gradient-to-r from-[#EC4899] to-[#A855F7] text-white font-bold'
-                      : 'text-[--text] font-semibold hover:bg-[#FDF2F8]'
+                      ? 'bg-gradient-to-r from-[#0A1628] via-[#1E3A8A] to-[#2563EB] text-white font-bold'
+                      : 'text-[--text] font-semibold hover:bg-[#EFF6FF]'
                   }`}
                 >
-                  <span className="flex items-center gap-3 pr-4">
-                    <span className={`text-[13px] md:text-[14px] font-black shrink-0 ${isOpen ? 'text-white/75' : 'text-[#DB2777]'}`}>Q.</span>
+                  {isOpen && <span className="absolute inset-0 grid-bg-dark opacity-40 pointer-events-none" />}
+                  <span className="relative flex items-center gap-3 pr-4">
+                    <span className={`inline-flex items-center justify-center w-7 h-7 rounded-lg text-[12px] md:text-[13px] font-black shrink-0 ${
+                      isOpen ? 'bg-[#FCD34D] text-[#7C2D12]' : 'bg-[#DBEAFE] text-[#1E3A8A]'
+                    }`}>Q</span>
                     <span className="break-keep">{item.q}</span>
                   </span>
                   <svg
-                    width="16"
-                    height="16"
+                    width="18"
+                    height="18"
                     viewBox="0 0 24 24"
                     fill="none"
-                    className={`shrink-0 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}
+                    className={`relative shrink-0 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}
                   >
-                    <path d="M6 9l6 6 6-6" stroke={isOpen ? '#fff' : '#A855F7'} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                    <path d="M6 9l6 6 6-6" stroke={isOpen ? '#FCD34D' : '#1E3A8A'} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </button>
-                <div className={`overflow-hidden transition-all duration-300 ${isOpen ? 'max-h-64' : 'max-h-0'}`}>
-                  <div className="px-5 md:px-6 pt-3 pb-5 md:pb-6 flex gap-3">
-                    <span className="text-[13px] md:text-[14px] font-black text-[#7C3AED] mt-0.5 shrink-0">A.</span>
-                    <p className="text-[13px] md:text-[15px] text-[--text-sub] leading-[1.8] break-keep">{item.a}</p>
+                <div className={`overflow-hidden transition-all duration-500 ${isOpen ? 'max-h-80' : 'max-h-0'}`}>
+                  <div className="px-5 md:px-7 pt-4 pb-5 md:pb-7 flex gap-3 bg-white">
+                    <span className="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-[#FEF3C7] text-[#B45309] text-[12px] md:text-[13px] font-black mt-0.5 shrink-0">A</span>
+                    <p className="text-[13px] md:text-[15px] text-[--text-sub] leading-[1.85] break-keep">{item.a}</p>
                   </div>
                 </div>
               </div>
