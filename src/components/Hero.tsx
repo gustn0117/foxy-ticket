@@ -281,9 +281,10 @@ export default function Hero() {
               <span className="text-gold-gradient font-bold">업계 1위</span>
             </div>
 
-            <h1 className="text-[34px] md:text-[52px] lg:text-[66px] font-black leading-[1.12] tracking-[-0.02em] mb-5 md:mb-6 animate-fade-up-delay-1">
+            <h1 className="text-[32px] sm:text-[38px] md:text-[52px] lg:text-[64px] font-black leading-[1.2] tracking-[-0.02em] mb-5 md:mb-6 animate-fade-up-delay-1 break-keep">
               긴급할 때<br />
-              <span className="inline-block text-navy-shine">카드 · 소액결제 한도</span>를<br />
+              <span className="text-navy-shine whitespace-nowrap">카드 · 소액결제</span>{' '}
+              <span className="whitespace-nowrap"><span className="text-navy-shine">한도</span>를</span><br />
               <span className="text-gold-gradient">현금</span>으로
             </h1>
 
