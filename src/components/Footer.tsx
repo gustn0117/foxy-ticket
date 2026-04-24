@@ -43,7 +43,7 @@ export default function Footer() {
             </div>
             <div className="text-[13px] md:text-[15px] text-white/90 font-semibold leading-[1.95]">
               <div>상호명 : 폭시티켓</div>
-              <div>대표전화 : <a href="tel:01083520358" className="text-gold-gradient font-black">010-8352-0358</a></div>
+              <div>대표전화 : <a href="tel:01083520358" className="text-[#37AEE2] font-black">010-8352-0358</a></div>
               <div>상담 : 텔레그램 공식 채널 <a href="https://t.me/foxytiket" target="_blank" rel="noopener noreferrer" className="text-[#37AEE2] font-black">@foxytiket</a></div>
             </div>
           </div>
