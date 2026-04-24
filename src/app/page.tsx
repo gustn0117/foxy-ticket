@@ -64,11 +64,11 @@ function TopNav() {
         <a href="/" className="inline-flex items-center gap-2.5 group">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/fox-logo-200.png"
+            src="/fox-only-256.png"
             alt="폭시티켓 로고"
-            width={44}
-            height={44}
-            className="w-9 h-9 md:w-11 md:h-11 rounded-full bg-white ring-2 ring-[#60A5FA]/50 shadow-[0_4px_14px_rgba(59,130,246,0.4)] object-cover transition-transform duration-300 group-hover:scale-105"
+            width={48}
+            height={48}
+            className="w-10 h-10 md:w-12 md:h-12 object-contain drop-shadow-[0_6px_16px_rgba(96,165,250,0.55)] transition-transform duration-300 group-hover:scale-110"
           />
           <span className="text-[18px] md:text-[22px] font-black text-brand-gradient tracking-tight">폭시티켓</span>
         </a>

@@ -10,11 +10,11 @@ export default function Footer() {
         <div className="inline-flex items-center gap-3 mb-3">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/fox-logo-200.png"
+            src="/fox-only-256.png"
             alt="폭시티켓 로고"
-            width={48}
-            height={48}
-            className="w-11 h-11 md:w-12 md:h-12 rounded-full bg-white ring-2 ring-[#60A5FA]/60 shadow-[0_8px_24px_rgba(59,130,246,0.35)] object-cover"
+            width={56}
+            height={56}
+            className="w-12 h-12 md:w-14 md:h-14 object-contain drop-shadow-[0_8px_20px_rgba(96,165,250,0.5)]"
           />
           <span className="text-[24px] md:text-[32px] font-black text-brand-gradient tracking-tight">폭시티켓</span>
         </div>
