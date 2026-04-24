@@ -9,17 +9,23 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: '#6366F1',
-        'primary-dark': '#4F46E5',
-        'primary-light': '#EEF2FF',
-        accent: '#F59E0B',
-        'accent-light': '#FEF3C7',
+        primary: '#EC4899',
+        'primary-dark': '#DB2777',
+        'primary-light': '#FCE7F3',
+        secondary: '#A855F7',
+        'secondary-dark': '#7C3AED',
+        'secondary-light': '#F3E8FF',
+        accent: '#C084FC',
         kakao: '#FEE500',
-        dark: '#18181B',
-        'dark-sub': '#27272A',
+        dark: '#1A0B2E',
+        'dark-sub': '#2D1B4E',
       },
       fontFamily: {
         sans: ['var(--font-noto)', 'sans-serif'],
+      },
+      backgroundImage: {
+        'brand-gradient': 'linear-gradient(135deg, #EC4899 0%, #A855F7 100%)',
+        'brand-gradient-soft': 'linear-gradient(135deg, #FCE7F3 0%, #F3E8FF 100%)',
       },
     },
   },

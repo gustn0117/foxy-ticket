@@ -3,22 +3,26 @@
 @tailwind utilities;
 
 :root {
-  --primary: #6366F1;
-  --primary-dark: #4F46E5;
-  --primary-light: #EEF2FF;
-  --accent: #F59E0B;
-  --accent-light: #FEF3C7;
+  --brand-pink: #EC4899;
+  --brand-pink-light: #F472B6;
+  --brand-pink-soft: #FCE7F3;
+  --brand-purple: #A855F7;
+  --brand-purple-dark: #7C3AED;
+  --brand-purple-soft: #F3E8FF;
+  --accent: #C084FC;
   --accent-green: #10B981;
   --accent-red: #EF4444;
   --bg: #FFFFFF;
-  --bg-alt: #F9FAFB;
+  --bg-alt: #FAF5FF;
+  --bg-soft: #FDF2F8;
   --card: #FFFFFF;
   --text: #111827;
   --text-sub: #6B7280;
   --text-light: #9CA3AF;
-  --border: #F3F4F6;
-  --dark: #18181B;
-  --dark-sub: #27272A;
+  --border: #F3E8FF;
+  --border-strong: #E9D5FF;
+  --dark: #1A0B2E;
+  --dark-sub: #2D1B4E;
 }
 
 html {
@@ -32,30 +36,18 @@ body {
   overflow-x: hidden;
 }
 
-.page-wrapper {
-  max-width: 480px;
+.container-x {
+  width: 100%;
+  max-width: 1200px;
   margin: 0 auto;
-  position: relative;
-  background: var(--bg);
-}
-
-@media (min-width: 640px) {
-  body {
-    background: #F3F4F6;
-  }
-  .page-wrapper {
-    margin-top: 24px;
-    margin-bottom: 100px;
-    border-radius: 20px;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.1), 0 0 0 1px rgba(0,0,0,0.04);
-    overflow: hidden;
-  }
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 @media (min-width: 1024px) {
-  .page-wrapper {
-    max-width: 440px;
-    margin-top: 40px;
+  .container-x {
+    padding-left: 40px;
+    padding-right: 40px;
   }
 }
 
@@ -69,27 +61,18 @@ body {
   to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes slideIn {
-  from { opacity: 0; transform: translateX(-12px); }
-  to { opacity: 1; transform: translateX(0); }
-}
-
 .animate-fade-up {
   animation: fadeUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
-
 .animate-fade-up-delay-1 {
   animation: fadeUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both;
 }
-
 .animate-fade-up-delay-2 {
   animation: fadeUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both;
 }
-
 .animate-fade-up-delay-3 {
   animation: fadeUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.3s both;
 }
-
 .animate-pulse-dot {
   animation: pulse-dot 2s ease-in-out infinite;
 }
@@ -99,17 +82,15 @@ body {
   100% { background-position: 200% center; }
 }
 
+.text-brand-gradient {
+  background: linear-gradient(90deg, #EC4899 0%, #A855F7 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .text-shimmer {
-  background: linear-gradient(
-    90deg,
-    #6366F1 0%,
-    #6366F1 35%,
-    #a5b4fc 45%,
-    #e0e7ff 50%,
-    #a5b4fc 55%,
-    #4F46E5 65%,
-    #4F46E5 100%
-  );
+  background: linear-gradient(90deg, #EC4899 0%, #F472B6 35%, #C084FC 50%, #A855F7 65%, #7C3AED 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   background-clip: text;
@@ -126,7 +107,6 @@ body {
   50% { transform: rotate(4deg); }
   60% { transform: rotate(0deg); }
 }
-
 .animate-bell {
   animation: bellShake 1.5s ease-in-out infinite;
   transform-origin: top center;
@@ -136,16 +116,22 @@ body {
   0%, 100% { box-shadow: 0 8px 32px rgba(220, 38, 38, 0.15), 0 0 0 0 rgba(220, 38, 38, 0); }
   50% { box-shadow: 0 8px 48px rgba(220, 38, 38, 0.35), 0 0 60px rgba(220, 38, 38, 0.1); }
 }
-
 .animate-red-glow {
   animation: redGlow 2.5s ease-in-out infinite;
+}
+
+@keyframes pinkGlow {
+  0%, 100% { box-shadow: 0 8px 32px rgba(236, 72, 153, 0.2), 0 0 0 0 rgba(168, 85, 247, 0); }
+  50% { box-shadow: 0 12px 48px rgba(236, 72, 153, 0.35), 0 0 60px rgba(168, 85, 247, 0.15); }
+}
+.animate-pink-glow {
+  animation: pinkGlow 2.8s ease-in-out infinite;
 }
 
 @keyframes prohibitionPulse {
   0%, 100% { transform: scale(1); opacity: 1; }
   50% { transform: scale(1.08); opacity: 0.85; }
 }
-
 .animate-prohibition {
   animation: prohibitionPulse 2s ease-in-out infinite;
 }
@@ -155,8 +141,43 @@ body {
   transform: translateY(24px);
   transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
-
 .reveal.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Step ring progress circles */
+.step-ring {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  max-width: 260px;
+  margin: 0 auto;
+}
+.step-ring svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+.step-ring .ring-bg {
+  fill: none;
+  stroke: #F3E8FF;
+  stroke-width: 6;
+}
+.step-ring .ring-fg {
+  fill: none;
+  stroke-width: 6;
+  stroke-linecap: round;
+  stroke-dasharray: 283;
+  stroke-dashoffset: 71;
+}
+.step-ring-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 14%;
 }
