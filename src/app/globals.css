@@ -293,5 +293,53 @@ body {
 .ticker-track {
   display: flex;
   width: max-content;
-  animation: tickerScroll 40s linear infinite;
+  animation: tickerScroll 45s linear infinite;
+}
+.ticker-track:hover {
+  animation-play-state: paused;
+}
+
+/* ===================== Extra animation helpers ===================== */
+@keyframes tiltIdle {
+  0%, 100% { transform: perspective(800px) rotateX(0deg) rotateY(0deg); }
+  50% { transform: perspective(800px) rotateX(-2deg) rotateY(2deg); }
+}
+
+@keyframes gradientSweep {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.bg-sweep {
+  background-size: 200% 100%;
+  animation: gradientSweep 6s ease-in-out infinite;
+}
+
+@keyframes borderSpin {
+  0% { --angle: 0deg; }
+  100% { --angle: 360deg; }
+}
+
+/* subtle text shadow for navy-on-white */
+.text-nav-shadow {
+  text-shadow: 0 1px 2px rgba(30, 58, 138, 0.08);
+}
+
+@keyframes pingSlow {
+  0% { transform: scale(1); opacity: 0.6; }
+  80%, 100% { transform: scale(2.3); opacity: 0; }
+}
+.animate-ping-slow::before,
+.animate-ping-slow::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: 2px solid currentColor;
+  animation: pingSlow 2.2s cubic-bezier(0, 0, 0.2, 1) infinite;
+  pointer-events: none;
+}
+.animate-ping-slow::after {
+  animation-delay: 1.1s;
 }

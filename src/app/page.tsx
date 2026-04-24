@@ -11,6 +11,10 @@ import FAQ from '@/components/FAQ'
 import Footer from '@/components/Footer'
 import StickyCTA from '@/components/StickyCTA'
 import ScrollReveal from '@/components/ScrollReveal'
+import ScrollProgress from '@/components/ScrollProgress'
+import CursorGlow from '@/components/CursorGlow'
+import LiveStats from '@/components/LiveStats'
+import Brands from '@/components/Brands'
 
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -96,10 +100,14 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <ScrollReveal />
+      <ScrollProgress />
+      <CursorGlow />
       <TopNav />
       <main>
         <Hero />
+        <LiveStats />
         <Stats />
+        <Brands />
         <SafePayment />
         <Warning />
         <Steps />

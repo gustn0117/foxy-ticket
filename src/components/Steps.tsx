@@ -1,3 +1,7 @@
+'use client'
+
+import { useEffect, useRef, useState } from 'react'
+
 const steps = [
   {
     num: '01',
@@ -25,12 +29,29 @@ const steps = [
   },
 ]
 
-// Circle: r=42, circumference = 2πr ≈ 263.9
 const CIRC = 263.9
-// Each step renders ~75% colored arc for a consistent decorative look
-const ARC = CIRC * 0.75
+const TARGET = CIRC * 0.75
 
 export default function Steps() {
+  const wrapRef = useRef<HTMLDivElement>(null)
+  const [active, setActive] = useState(false)
+
+  useEffect(() => {
+    const el = wrapRef.current
+    if (!el) return
+    const ob = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setActive(true)
+          ob.disconnect()
+        }
+      },
+      { threshold: 0.35 },
+    )
+    ob.observe(el)
+    return () => ob.disconnect()
+  }, [])
+
   return (
     <section id="steps" className="relative py-16 md:py-24 lg:py-32 overflow-hidden bg-gradient-to-b from-[#F8FAFC] via-white to-[#EFF6FF] reveal">
       <div className="absolute inset-0 grid-bg opacity-40 pointer-events-none" />
@@ -50,7 +71,7 @@ export default function Steps() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-y-10 md:gap-y-0 md:gap-x-6 items-center max-w-[1100px] mx-auto">
+        <div ref={wrapRef} className="grid grid-cols-1 md:grid-cols-3 gap-y-10 md:gap-y-0 md:gap-x-6 items-center max-w-[1100px] mx-auto">
           {steps.map((s, i) => (
             <div key={s.num} className="relative flex md:block items-center justify-center">
               <div className="step-ring">
@@ -61,32 +82,20 @@ export default function Steps() {
                       <stop offset="100%" stopColor={s.colorB} />
                     </linearGradient>
                     <radialGradient id={`ringGlow${s.num}`} cx="0.5" cy="0.5" r="0.5">
-                      <stop offset="0%" stopColor={s.colorB} stopOpacity="0.25" />
+                      <stop offset="0%" stopColor={s.colorB} stopOpacity="0.3" />
                       <stop offset="100%" stopColor={s.colorB} stopOpacity="0" />
                     </radialGradient>
                     <filter id={`ringShadow${s.num}`} x="-30%" y="-30%" width="160%" height="160%">
                       <feGaussianBlur in="SourceAlpha" stdDeviation="1.5" />
                       <feOffset dx="0" dy="1" result="offsetblur" />
-                      <feComponentTransfer>
-                        <feFuncA type="linear" slope="0.35" />
-                      </feComponentTransfer>
-                      <feMerge>
-                        <feMergeNode />
-                        <feMergeNode in="SourceGraphic" />
-                      </feMerge>
+                      <feComponentTransfer><feFuncA type="linear" slope="0.35" /></feComponentTransfer>
+                      <feMerge><feMergeNode /><feMergeNode in="SourceGraphic" /></feMerge>
                     </filter>
                   </defs>
 
-                  {/* Outer glow */}
                   <circle cx="50" cy="50" r="48" fill={`url(#ringGlow${s.num})`} />
-
-                  {/* White disc background */}
                   <circle cx="50" cy="50" r="42" fill="#FFFFFF" />
-
-                  {/* Track */}
                   <circle cx="50" cy="50" r="42" fill="none" stroke="#E2E8F0" strokeWidth="5" />
-
-                  {/* Progress arc */}
                   <circle
                     cx="50"
                     cy="50"
@@ -95,21 +104,20 @@ export default function Steps() {
                     stroke={`url(#ringG${s.num})`}
                     strokeWidth="5"
                     strokeLinecap="round"
-                    strokeDasharray={`${ARC} ${CIRC}`}
+                    strokeDasharray={`${active ? TARGET : 0} ${CIRC}`}
                     strokeDashoffset="0"
                     transform="rotate(-90 50 50)"
                     filter={`url(#ringShadow${s.num})`}
+                    style={{
+                      transition: `stroke-dasharray 1400ms cubic-bezier(0.22, 1, 0.36, 1) ${400 + i * 220}ms`,
+                    }}
                   />
-
-                  {/* Endpoint cap dot */}
                   <circle cx="50" cy="8" r="3.5" fill={s.colorA} />
                   <circle cx="50" cy="8" r="1.5" fill="#FFFFFF" />
                 </svg>
 
                 <div className="step-ring-content">
-                  <div className="text-[11px] md:text-[12px] text-[--text-light] font-medium mb-1.5 md:mb-2 break-keep">
-                    {s.top}
-                  </div>
+                  <div className="text-[11px] md:text-[12px] text-[--text-light] font-medium mb-1.5 md:mb-2 break-keep">{s.top}</div>
                   <div
                     className="text-[20px] md:text-[26px] font-black tracking-[0.08em] leading-none mb-2 md:mb-2.5"
                     style={{ color: s.colorA }}
@@ -122,22 +130,25 @@ export default function Steps() {
                   >
                     {s.highlight}
                   </div>
-                  <div className="text-[11px] md:text-[12px] text-[--text-light] mt-1.5 break-keep">
-                    {s.bottom}
-                  </div>
+                  <div className="text-[11px] md:text-[12px] text-[--text-light] mt-1.5 break-keep">{s.bottom}</div>
                 </div>
               </div>
 
               {i < steps.length - 1 && (
-                <>
-                  <div className="hidden md:block absolute top-1/2 -right-3 -translate-y-1/2 z-10">
-                    <div className="w-9 h-9 rounded-full bg-white shadow-[0_6px_16px_rgba(30,58,138,0.2)] border border-[--border-strong] flex items-center justify-center">
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                        <path d="M5 12h14M13 5l7 7-7 7" stroke="#1E3A8A" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
-                    </div>
+                <div className="hidden md:block absolute top-1/2 -right-3 -translate-y-1/2 z-10">
+                  <div
+                    className="w-9 h-9 rounded-full bg-white shadow-[0_6px_16px_rgba(30,58,138,0.2)] border border-[--border-strong] flex items-center justify-center transition-all duration-500"
+                    style={{
+                      opacity: active ? 1 : 0.25,
+                      transform: `scale(${active ? 1 : 0.7})`,
+                      transitionDelay: `${1200 + i * 220}ms`,
+                    }}
+                  >
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                      <path d="M5 12h14M13 5l7 7-7 7" stroke="#1E3A8A" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
                   </div>
-                </>
+                </div>
               )}
             </div>
           ))}
