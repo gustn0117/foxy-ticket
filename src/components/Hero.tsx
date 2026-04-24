@@ -383,19 +383,6 @@ export default function Hero() {
             <div className="relative">
               <PremiumCard3D tilt={tilt} />
 
-              <div className="absolute -top-2 md:-top-4 left-2 md:-left-6 glass-card rounded-2xl px-4 py-3 animate-float-slow" style={{ animationDelay: '0.4s' }}>
-                <div className="flex items-center gap-2">
-                  <div className="w-9 h-9 rounded-full bg-gradient-to-br from-[#2563EB] to-[#1E3A8A] flex items-center justify-center shadow-lg">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                      <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 16.8 5.8 21.3l2.4-7.4L2 9.4h7.6L12 2z" fill="#FCD34D"/>
-                    </svg>
-                  </div>
-                  <div>
-                    <div className="text-[10px] text-[--text-light] font-semibold">업계 최고</div>
-                    <div className="text-[15px] font-black text-brand-gradient leading-none">94% 지급률</div>
-                  </div>
-                </div>
-              </div>
 
               <div className="absolute -bottom-4 md:-bottom-6 right-2 md:-right-4 glass-card rounded-2xl px-4 py-3 animate-float" style={{ animationDelay: '0.8s' }}>
                 <div className="text-[10px] text-[--text-light] font-semibold mb-0.5">실시간 입금</div>
