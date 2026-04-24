@@ -61,8 +61,16 @@ function TopNav() {
   return (
     <header className="sticky top-0 z-40 bg-[#0A1628]/80 backdrop-blur-xl border-b border-white/10">
       <div className="container-x flex items-center justify-between h-14 md:h-16">
-        <a href="/" className="inline-flex items-center">
-          <span className="text-[18px] md:text-[22px] font-black text-gold-gradient tracking-tight">폭시티켓</span>
+        <a href="/" className="inline-flex items-center gap-2.5 group">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/fox-logo-200.png"
+            alt="폭시티켓 로고"
+            width={44}
+            height={44}
+            className="w-9 h-9 md:w-11 md:h-11 rounded-full bg-white ring-2 ring-[#60A5FA]/50 shadow-[0_4px_14px_rgba(59,130,246,0.4)] object-cover transition-transform duration-300 group-hover:scale-105"
+          />
+          <span className="text-[18px] md:text-[22px] font-black text-brand-gradient tracking-tight">폭시티켓</span>
         </a>
         <nav className="hidden md:flex items-center gap-7 text-[14px] font-semibold text-[#94A3B8]">
           <a href="#intro" className="hover:text-white transition">현금화 소개</a>

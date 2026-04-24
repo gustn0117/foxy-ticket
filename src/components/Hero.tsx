@@ -276,21 +276,45 @@ export default function Hero() {
           <div className="text-center lg:text-left">
             <div className="inline-flex items-center gap-2 glass-card-dark text-[12px] md:text-[13px] font-semibold px-4 py-2 rounded-full mb-6 md:mb-8 animate-fade-up">
               <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse-dot" />
-              <span className="text-[#93C5FD]">365일 24시간 상담 운영 중</span>
+              <span className="text-[#93C5FD]">신용카드 · 소액결제 현금화 전문</span>
               <span className="mx-1 w-px h-3 bg-white/20" />
               <span className="text-gold-gradient font-bold">업계 1위</span>
             </div>
 
             <h1 className="text-[34px] md:text-[52px] lg:text-[66px] font-black leading-[1.12] tracking-[-0.02em] mb-5 md:mb-6 animate-fade-up-delay-1">
               긴급할 때<br />
-              <span className="inline-block text-navy-shine">신용카드 한도</span>를<br />
+              <span className="inline-block text-navy-shine">카드 · 소액결제 한도</span>를<br />
               <span className="text-gold-gradient">현금</span>으로
             </h1>
 
-            <p className="text-[15px] md:text-[19px] text-[#CBD5E1] leading-[1.8] mb-7 md:mb-9 animate-fade-up-delay-2 break-keep max-w-[560px] mx-auto lg:mx-0">
-              <b className="text-white">업계 최고 94% 지급률</b>을 보장하는 폭시티켓.<br />
-              5년간 무사고 · 365일 24시간 · 앱카드/무이자 할부 가능.
+            <p className="text-[15px] md:text-[19px] text-[#CBD5E1] leading-[1.8] mb-6 md:mb-8 animate-fade-up-delay-2 break-keep max-w-[580px] mx-auto lg:mx-0">
+              <b className="text-white">신용카드 · 소액결제 · 정보이용료</b> 모두 가능<br />
+              업계 최고 <b className="text-white">94% 지급률</b> · 365일 24시간 상담.
             </p>
+
+            {/* Service type chips */}
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2 mb-7 md:mb-9 animate-fade-up-delay-2">
+              {[
+                { label: '신용카드 한도', amount: '1,000만원', icon: (
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="13" rx="2" stroke="#60A5FA" strokeWidth="2"/><path d="M3 10h18" stroke="#60A5FA" strokeWidth="2"/></svg>
+                ) },
+                { label: '소액결제', amount: '100만원', icon: (
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="7" y="2" width="10" height="20" rx="2" stroke="#FCD34D" strokeWidth="2"/><circle cx="12" cy="18" r="1" fill="#FCD34D"/></svg>
+                ) },
+                { label: '정보이용료', amount: '100만원', icon: (
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#38BDF8" strokeWidth="2"/><path d="M12 7v6l4 2" stroke="#38BDF8" strokeWidth="2" strokeLinecap="round"/></svg>
+                ) },
+              ].map((s) => (
+                <span
+                  key={s.label}
+                  className="inline-flex items-center gap-1.5 glass-card-dark text-[12px] md:text-[13px] font-semibold px-3 py-1.5 rounded-full text-white"
+                >
+                  {s.icon}
+                  {s.label}
+                  <span className="text-gold-gradient font-black">{s.amount}</span>
+                </span>
+              ))}
+            </div>
 
             {/* Animated stats bar */}
             <div className="grid grid-cols-4 gap-2 md:gap-3 mb-8 md:mb-10 max-w-[580px] mx-auto lg:mx-0 animate-fade-up-delay-2">
@@ -309,7 +333,7 @@ export default function Hero() {
               ))}
             </div>
 
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2 mb-8 md:mb-10 animate-fade-up-delay-2">
+            <div className="hidden flex-wrap items-center justify-center lg:justify-start gap-2 mb-8 md:mb-10 animate-fade-up-delay-2">
               {[
                 { t: '앱카드 결제 OK', c: '#60A5FA' },
                 { t: '무이자 할부', c: '#38BDF8' },

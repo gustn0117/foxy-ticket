@@ -7,13 +7,16 @@ export default function Footer() {
       <div className="absolute -bottom-40 right-1/4 w-[420px] h-[420px] rounded-full bg-[#0EA5E9] opacity-25 blur-[120px] pointer-events-none" />
 
       <div className="container-x relative max-w-[1040px] text-center">
-        <div className="inline-flex items-center gap-2.5 mb-3">
-          <span className="inline-block w-9 h-9 md:w-10 md:h-10 rounded-2xl bg-gradient-to-br from-[#FCD34D] via-[#F59E0B] to-[#B45309] shadow-[0_8px_24px_rgba(245,158,11,0.35)] relative overflow-hidden">
-            <svg viewBox="0 0 40 40" className="w-full h-full">
-              <path d="M10 30 L30 10 M14 10 L10 10 L10 14 M26 30 L30 30 L30 26" stroke="#7C2D12" strokeWidth="3" strokeLinecap="round" fill="none" />
-            </svg>
-          </span>
-          <span className="text-[24px] md:text-[32px] font-black text-gold-gradient tracking-tight">폭시티켓</span>
+        <div className="inline-flex items-center gap-3 mb-3">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/fox-logo-200.png"
+            alt="폭시티켓 로고"
+            width={48}
+            height={48}
+            className="w-11 h-11 md:w-12 md:h-12 rounded-full bg-white ring-2 ring-[#60A5FA]/60 shadow-[0_8px_24px_rgba(59,130,246,0.35)] object-cover"
+          />
+          <span className="text-[24px] md:text-[32px] font-black text-brand-gradient tracking-tight">폭시티켓</span>
         </div>
         <p className="text-[12px] md:text-[15px] text-[#94A3B8] mb-8 md:mb-10 break-keep">
           안전하고 빠른 신용카드 · 소액결제 현금화 전문 서비스
