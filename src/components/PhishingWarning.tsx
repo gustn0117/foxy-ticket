@@ -91,17 +91,17 @@ export default function PhishingWarning() {
               <svg width="14" height="14" viewBox="0 0 24 24" fill="#fff">
                 <path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/>
               </svg>
-              Telegram Channel · @foxytiket119
+              Telegram Channel · @foxytiket
             </div>
             <h3 className="text-[19px] md:text-[30px] font-black mb-2 text-white break-keep">
               신용카드 현금화 전문<br />
               <span className="text-gold-gradient">폭시티켓은 오직 텔레그램에서!</span>
             </h3>
             <p className="text-[13px] md:text-[16px] text-[#CBD5E1] mb-6 md:mb-7 break-keep">
-              공식 채널은 <b className="text-white">@foxytiket119</b> 단 하나이며, 그 외 <b className="text-white">모든 계정은 사칭이므로 주의</b>하세요!
+              공식 채널은 <b className="text-white">@foxytiket</b> 단 하나이며, 그 외 <b className="text-white">모든 계정은 사칭이므로 주의</b>하세요!
             </p>
             <a
-              href="https://t.me/foxytiket119"
+              href="https://t.me/foxytiket"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-7 md:px-12 py-4 md:py-5 bg-gradient-to-br from-[#37AEE2] to-[#1E96C8] text-white rounded-full text-[14px] md:text-[16px] font-black shadow-[0_12px_32px_rgba(34,158,217,0.5)] hover:-translate-y-0.5 transition-all"

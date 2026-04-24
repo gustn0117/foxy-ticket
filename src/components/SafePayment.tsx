@@ -185,7 +185,7 @@ export default function SafePayment() {
             </div>
             <p className="text-[13px] md:text-[16px] text-[--text-sub] mb-7 break-keep">언제 어디서든 가능한 나만의 비상금, 폭시티켓</p>
             <a
-              href="https://t.me/foxytiket119"
+              href="https://t.me/foxytiket"
               target="_blank"
               rel="noopener noreferrer"
               className="group relative inline-flex items-center justify-center gap-2 w-full md:w-auto md:px-12 py-4 md:py-5 bg-gradient-to-r from-[#1E3A8A] via-[#2563EB] to-[#0EA5E9] text-white rounded-2xl md:rounded-full text-[15px] md:text-[17px] font-bold overflow-hidden animate-glow-pulse"

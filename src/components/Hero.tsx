@@ -331,7 +331,7 @@ export default function Hero() {
 
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-3 animate-fade-up-delay-3">
               <a
-                href="https://t.me/foxytiket119"
+                href="https://t.me/foxytiket"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="relative overflow-hidden inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-br from-[#37AEE2] to-[#1E96C8] text-white rounded-full text-[15px] md:text-[16px] font-bold shadow-[0_12px_32px_rgba(34,158,217,0.4)] hover:-translate-y-0.5 active:translate-y-0 transition-all"

@@ -72,7 +72,7 @@ function TopNav() {
           <a href="#faq" className="hover:text-white transition">FAQ</a>
         </nav>
         <a
-          href="https://t.me/foxytiket119"
+          href="https://t.me/foxytiket"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-1.5 px-3.5 md:px-5 py-2 md:py-2.5 bg-gradient-to-br from-[#37AEE2] to-[#1E96C8] text-white rounded-full text-[12px] md:text-[13px] font-bold shadow-[0_4px_12px_rgba(34,158,217,0.35)] hover:brightness-[1.05] transition"

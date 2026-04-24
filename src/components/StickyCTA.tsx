@@ -8,7 +8,7 @@ export default function StickyCTA() {
       <div className="relative container-x py-3 md:py-3.5">
         <div className="flex gap-2.5 md:gap-3 max-w-[760px] mx-auto">
           <a
-            href="https://t.me/foxytiket119"
+            href="https://t.me/foxytiket"
             target="_blank"
             rel="noopener noreferrer"
             className="relative flex-1 flex items-center justify-center gap-1.5 md:gap-2 py-3.5 md:py-4 bg-gradient-to-br from-[#37AEE2] to-[#1E96C8] text-white rounded-xl md:rounded-2xl text-[13px] md:text-[15px] font-bold whitespace-nowrap shadow-[0_8px_24px_rgba(34,158,217,0.35)] hover:brightness-[1.05] active:scale-[0.98] transition-all overflow-hidden"
