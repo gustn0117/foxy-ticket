@@ -24,7 +24,7 @@ const jsonLd = {
   url: 'https://foxy-ticket.hsweb.pics',
   description:
     '폭시티켓은 신용카드 현금화, 소액결제 현금화, 정보이용료 현금화 전문 업체입니다. 업계 최고 94% 지급률, 365일 24시간 상담, 5년간 무사고 운영. 앱카드·무이자 할부 가능, 신용한도 영향 없음.',
-  telephone: '+82-10-3425-0104',
+  telephone: '+82-10-8352-0358',
   areaServed: { '@type': 'Country', name: 'KR' },
   serviceType: [
     '신용카드현금화',
@@ -39,7 +39,7 @@ const jsonLd = {
     serviceUrl: 'https://foxy-ticket.hsweb.pics',
     servicePhone: {
       '@type': 'ContactPoint',
-      telephone: '+82-10-3425-0104',
+      telephone: '+82-10-8352-0358',
       contactType: 'customer service',
       availableLanguage: 'Korean',
       hoursAvailable: {
@@ -72,15 +72,15 @@ function TopNav() {
           <a href="#faq" className="hover:text-white transition">FAQ</a>
         </nav>
         <a
-          href="https://open.kakao.com/o/skv91Efi"
+          href="https://t.me/foxytiket119"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 px-3.5 md:px-5 py-2 md:py-2.5 bg-[#FEE500] text-[#1A1A1A] rounded-full text-[12px] md:text-[13px] font-bold shadow-[0_4px_12px_rgba(254,229,0,0.25)] hover:brightness-[0.97] transition"
+          className="inline-flex items-center gap-1.5 px-3.5 md:px-5 py-2 md:py-2.5 bg-gradient-to-br from-[#37AEE2] to-[#1E96C8] text-white rounded-full text-[12px] md:text-[13px] font-bold shadow-[0_4px_12px_rgba(34,158,217,0.35)] hover:brightness-[1.05] transition"
         >
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="#1A1A1A">
-            <path d="M12 3C6.48 3 2 6.58 2 10.94c0 2.8 1.86 5.27 4.66 6.66-.15.54-.96 3.47-1 3.63 0 .05.02.1.06.13a.14.14 0 00.1.02c.14-.02 3.25-2.14 3.73-2.46.77.11 1.58.17 2.4.17 5.52 0 10-3.58 10-7.94S17.52 3 12 3z"/>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#fff">
+            <path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/>
           </svg>
-          채널톡 상담
+          텔레그램 상담
         </a>
       </div>
     </header>

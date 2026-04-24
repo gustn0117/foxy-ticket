@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from 'react'
 const steps = [
   {
     num: '01',
-    top: '채널톡 및 전화로',
+    top: '텔레그램 및 전화로',
     highlight: '365일 24시간 가능',
     bottom: '문의 상담하기',
     colorA: '#1E3A8A',
@@ -67,7 +67,7 @@ export default function Steps() {
             한도만큼! <span className="text-brand-gradient">비상금 매입 순서</span>
           </h2>
           <p className="text-[14px] md:text-[17px] text-[--text-sub]">
-            채널톡 상담부터 입금까지 단 <b className="text-[#1E3A8A]">3단계</b>로 완료
+            텔레그램 상담부터 입금까지 단 <b className="text-[#1E3A8A]">3단계</b>로 완료
           </p>
         </div>
 
